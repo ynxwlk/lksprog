@@ -1,0 +1,144 @@
+#麒麟区门头审批系统
+1.md mt
+2.cd mt
+3.django-admin startproject mt .
+4.python manage.py runserver  #OK
+5.127.0.0.1:8000
+6.python manage.py startapp qlmt  #创建APP
+7. mt-settings.py 中完成APP注册
+---------------------------------------
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'qlmt',         #麒麟门头申报系统
+]
+----------------------------------------
+8.语言、时区设置
+LANGUAGE_CODE = 'zh-hans'             #'en-us'
+
+TIME_ZONE = 'Asia/Shanghai'           #'UTC'
+
+9.完成qlmt-models.py的编写
+
+---------------------------------
+10.python manage.py makemigrations
+Traceback (most recent call last):
+  File "manage.py", line 15, in <module>
+    execute_from_command_line(sys.argv)
+  File "C:\python\lib\site-packages\django\core\management\__init__.py", line 371, in execute_from_command_line
+    utility.execute()
+  File "C:\python\lib\site-packages\django\core\management\__init__.py", line 347, in execute
+    django.setup()
+  File "C:\python\lib\site-packages\django\__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\python\lib\site-packages\django\apps\registry.py", line 112, in populate
+    app_config.import_models()
+  File "C:\python\lib\site-packages\django\apps\config.py", line 198, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\python\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\李康\OneDrive\python\mt\qlmt\models.py", line 17
+    mj      =  models.FloatField('面积', max_digits=5， decimal_places=2)  # 建筑面积   浮点 50
+                                                   ^
+SyntaxError: invalid character in identifier
+
+处理：
+mj      =  models.FloatField('面积')    #, max_digits=5， decimal_places=2)  # 建筑面积   浮点 50
+	cd      =  models.FloatField('宽度')    #, max_digits=4， decimal_places=2)  # 宽度       浮点 50
+	kd      =  models.FloatField('长度')    #, max_digits=4， decimal_places=2)  # 长度       浮点 50
+	
+通过。
+
+------------------------------------
+11.python manage.py makemigrations
+Traceback (most recent call last):
+  File "manage.py", line 15, in <module>
+    execute_from_command_line(sys.argv)
+  File "C:\python\lib\site-packages\django\core\management\__init__.py", line 371, in execute_from_command_line
+    utility.execute()
+  File "C:\python\lib\site-packages\django\core\management\__init__.py", line 347, in execute
+    django.setup()
+  File "C:\python\lib\site-packages\django\__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\python\lib\site-packages\django\apps\registry.py", line 112, in populate
+    app_config.import_models()
+  File "C:\python\lib\site-packages\django\apps\config.py", line 198, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\python\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\李康\OneDrive\python\mt\qlmt\models.py", line 32
+    def __str__(self):              # __unicode__ on Python 2
+                                                            ^
+IndentationError: unindent does not match any outer indentation level
+
+处理
+
+# def __str__(self):              # __unicode__ on Python 2
+    #     return self.sqdw
+
+通过
+
+------------------------
+12.python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, qlmt, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying qlmt.0001_initial... OK
+  Applying sessions.0001_initial... OK
+
+  ---------------------------------------
+  13.python manage.py createsuperuser
+Username: lk
+Email address: ynxwlk@126.com
+Password:     #lk-jh
+Password (again):
+Superuser created successfully.
+
+14.python manage.py runserver
+
+15.http://127.0.0.1:8000/admin/
+OK
+
+16.编辑 qlmt-admin.py
+
+17.运行
+
+18.可以增加数据。20181102-12:51
+
+--------------------------------------
+19.qlmt-views.py
+
+20.base.html

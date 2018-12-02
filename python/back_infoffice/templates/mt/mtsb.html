@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}网上报件{% endblock %}
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>网上申报</h1>
+    <p>请如实填报相关内容</p>
+    <form class="form-horizontal" action="{% url 'mt:mt_sb' %}" method="post">{% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.ljxk.id_for_lable }}" class="col-md-5 control-lable" style="color: red">
+                <span class="glyphicon glyphicon-user"></span>Ljxk</label>
+                <div class="col-md-6 text-left">{{ form.ljxk }}</div>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.sqdw.id_for_lable }}" class="col-md-5 control-lable" style="color: blue">
+                <span class="glyphicon glyphicon-floppy-open"></span>Sqdw</label>
+                <div class="col-md-6 text-left">{{ form.sqdw }}</div>
+        </div>
+        <button type="sumit" class="btn btn-primary btn-lg" value="Login">
+        <!--<input type="sumit" class="btn btn-primary btn-lg" value="Login">-->
+    </form>
+</div>
+{% endblock %}

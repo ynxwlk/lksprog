@@ -1,0 +1,24 @@
+﻿class MengTouBiaoShi(models Model):# 格式为ACCESS格式
+ljxh Charfield(max_lenghth = 50,)  # 临建许号  文本 50
+bh longint() # 编号  自编号,长整型,递增,无重复
+sqdw Charfield(max_lenghth = 50,)  # 申请单位  文本 50
+sgdw Charfield(max_lenghth = 50,)  # 施工单位  文本 50
+sgdd Charfield(max_lenghth = 50,)  # 施工地点  文本 50
+sgqsrq date()  # 施工起始日期    日期/时间
+sgzzrq date()  # 施工终止日期    日期/时间
+syqsrq date()  # 使用起始日期    日期/时间
+syzzrq date()  # 使用终止日期    日期/时间
+gcnr  Charfield(max_lenghth = 50,)  # 工程内容  文本 50
+gcdd Charfield(max_lenghth = 50,)  # 工程地点  文本 50
+gcmc Charfield(max_lenghth = 50,)  # 工程名称  文本 50
+jg  Charfield(max_lenghth = 50,)  # 结构  文本 50
+cs Charfield(max_lenghth = 50,)  # 层数  文本 50
+ds Charfield(max_lenghth = 50,)  # 幢数  文本 50
+jzmj Charfield(max_lenghth = 50,)  # 建筑面积  文本 50
+cd Charfield(max_lenghth = 50,)  # 宽度  文本 50
+kd Charfield(max_lenghth = 50,)  # 长度  文本 50
+dong Charfield(max_lenghth = 50,)  # 东  文本 50
+nan Charfield(max_lenghth = 50,)  # 南  文本 50
+xi Charfield(max_lenghth = 50,)  # 西  文本 50
+bei Charfield(max_lenghth = 50,)  # 北  文本 50
+bzrq Charfield(max_lenghth = 50,)  # 办证日期    日期/时间

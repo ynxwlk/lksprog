@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+</html>    
+	<head>
+		<title>门头标识申报</title>
+	</head>
+	<body>
+		<p style="text-align:center;font-size:1.5em;">门头标识办证</p>
+		<form action="/mt/" method="post"> 
+		{% csrf_token %}
+			<fieldset>
+				<legend>证件办理</legend>
+		            	{{ form_info.as_p }}
+		            	<input type="submit" value="提交" />
+		        </fieldset>
+		</form>
+	</body>
+</html>
