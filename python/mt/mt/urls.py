@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sb/', mt_views.mt_shengbao),
     # path('qlmt/', include('qlmt.urls')),
+    # 试用git
 ]
