@@ -23,4 +23,5 @@ urlpatterns = [
     # path('qlmt/', include('qlmt.urls')),
     # 试用git
     # ubuntu open
+    # office p231 2nd
 ]
