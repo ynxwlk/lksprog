@@ -22,4 +22,5 @@ urlpatterns = [
     path('sb/', mt_views.mt_shengbao),
     # path('qlmt/', include('qlmt.urls')),
     # 试用git
+    # ubuntu open
 ]
